@@ -5,5 +5,5 @@ import {nodePolyfills} from 'vite-plugin-node-polyfills'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), nodePolyfills()],
-  base: '/my-first-contract-front-end/',
+  base: '/first-contract-front-end/',
 })
