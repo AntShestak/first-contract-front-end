@@ -3,9 +3,9 @@ import App from './App.tsx'
 import './index.css'
 import { TonConnectUIProvider } from '@tonconnect/ui-react'
 
-const manifestUrl = "https://AntShestak.github.io/my-first-contract-front-end/tonconnect-manifest.json"
+const manifestUrl = "https://antshestak.github.io/first-contract-front-end/tonconnect-manifest.json"
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById('root')  as HTMLElement).render(
   <TonConnectUIProvider manifestUrl={manifestUrl}>
     <App />
   </TonConnectUIProvider>,

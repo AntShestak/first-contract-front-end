@@ -1,34 +1,42 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { TonConnectButton } from '@tonconnect/ui-react'
+import { useMainContract } from './hooks/useMainContract'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const {
+    contract_address,
+    contract_balance,
+    counter_value,
+    recent_sender,
+    owner_address,
+  } = useMainContract();
 
   return (
-    <>
+    <div className='App'>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <TonConnectButton />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <div>
+        <div className='Card'>
+          <b>Contract Address</b>
+          <div className='Hint'>{contract_address?.slice(0,30) + "..."}</div>
+          <b>Contract Balance</b>
+          <div className='Hint'>{contract_balance}</div>
+        </div>
+        
+        <div className='Card'>
+          <b>Counter Value</b>
+          <div className='Hint'>{counter_value ?? "Loading..."}</div>
+          {/* <b>Recent Sender</b>
+          <div className='Hint'>{recent_sender?.toString()}</div>
+          <b>Owner Address</b>
+          <div className='Hint'>{owner_address?.toString()} */}
+        </div>
+
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
+    
   )
 }
 
