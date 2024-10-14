@@ -1,6 +1,6 @@
 import './App.css'
 import { TonConnectButton } from '@tonconnect/ui-react'
-import { useMainContract } from './hooks/useMainContract'
+// import { useMainContract } from './hooks/useMainContract'
 
 function App() {
   // const {
